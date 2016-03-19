@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="windows-1251">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+<script src="scripts/jquery-1.11.3.min.js"></script>
+<script src="scripts/jquery.mobile-1.4.5.min.js"></script>
+<style>
+.ui-btn-calc {
+width:20% !important;
+}
+
+</style>
+
+
+<script>
+/* Скрипт */
+var count = 0;
+var temp = 0;
+var display = "";
+var reset = function(){
+    /*Сбрасывает значения count, display и отображает 0 */
+    count = 0;
+    
+    display = "";
+    var obj = document.getElementById('display');
+    obj.innerHTML = count;
+}
+
+var add = function (val){
+    /*Значение id сохраняется в переменную, при множественном нажатии конкатенируется и отображается как строчное значение */
+    var num = val;
+    display += num;
+    
+    var obj = document.getElementById('display');
+    obj.innerHTML = display;
+}
+
+var plus = function(){
+
+//сохраняем значение предыдущего ввода в переменную
+var a = Number(display) ;
+
+count += a;
+
+var obj = document.getElementById('display');
+    obj.innerHTML = count;
+display = "";
+
+}
+
+var equal = function(){
+
+var obj = document.getElementById('display');
+    obj.innerHTML = count;
+
+}
+/* Конец скрипта */
+</script>
+
+
+</head>
+<body>
+
+<div data-role="page" id="pageone">
+  <div data-role="header" style="text-align:center; padding: 5px 0;">
+    Мой калькулятор
+  </div>
+
+  <div data-role="main" class="ui-content"><!--Контент-->
+    <div ><!--Дисплей-->
+    <p style="text-align:right; font-size:1.5em; border:1px solid black;" id='display'>0</p>    
+    </div><!--Конец дисплея-->
+
+    <div style="text-align:right;"><!--Кнопки-->
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='7' onclick='add(this.id);'>7</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='8' onclick='add(this.id);'>8</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='9' onclick='add(this.id);'>9</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='plus' onclick='plus()';>+</button><br />
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='4' onclick='add(this.id);'>4</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='5' onclick='add(this.id);'>5</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='6' onclick='add(this.id);'>6</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='minus'>-</button><br />
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='1' onclick='add(this.id);'>1</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='2' onclick='add(this.id);'>2</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='3' onclick='add(this.id);'>3</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='multy'>x</button><br />
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='reset' onclick='reset();'>C</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='0' onclick='add(this.id);'>0</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='dot'>,</button>
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='divide'>/</button><br />
+    <button class="ui-btn  " onclick='equal()'>=</button>
+    </div><!--Конец кнопок-->
+    
+    </div><!--Конец контента-->
+    <div data-role="footer" style="text-align:center;">
+    Made by Vlad
+  </div>
+  </div> <!--Конец страницы-->
+
+</body>
+</html>
+
