@@ -51,16 +51,11 @@ count += a;
 
 var obj = document.getElementById('display');
     obj.innerHTML = count;
-
-/* для отслеживания значений переменных.
 console.log("count: " + count);
 console.log("display " + display);
 console.log("flag " + flag);
 console.log(" ");
 display = "";
-*/
-
-
 // конец функции "плюс"
 }
 
