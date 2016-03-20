@@ -26,6 +26,7 @@ var reset = function(){
     count = 0;
     
     display = "";
+    flag = "";
     var obj = document.getElementById('display');
     obj.innerHTML = count;
 }
@@ -41,10 +42,10 @@ var add = function (val){
 }
 
 var plus = function(){
+//изменяем значение flag чтобы правильно потом сработала функция equal
+flag = "plus";
 
-//сохраняем значение предыдущего ввода в переменную
-
-flag = "plus";//изменяем значение flag чтобы правильно потом сработала функция equal
+//сохраняем значение того, что на экране в переменную
 var a = Number(display) ;
 
 count += a;
@@ -52,30 +53,55 @@ count += a;
 var obj = document.getElementById('display');
     obj.innerHTML = count;
 
-/* для отслеживания значений переменных.
-console.log("count: " + count);
-console.log("display " + display);
-console.log("flag " + flag);
-console.log(" ");
 display = "";
-*/
-
 
 // конец функции "плюс"
 }
 
-var equal = function(){
-if(flag == "plus"){
-display = Number(display);
-count += display;
+var minus = function(){
+//проверяем, были ли до этого вообще какие-либо вычисления
+    if(flag == ""){
+        flag = "minus";
+        count = +display;
+
+    }else{
+        //изменяем значение flag чтобы правильно потом сработала функция equal
+        flag = "minus";
+        //сохраняем значение предыдущего ввода в переменную
+        var b = Number(display) ;
+        count -= b  ;
 }
-
-
-var obj = document.getElementById('display');
+    
+    var obj = document.getElementById('display');
     obj.innerHTML = count;
 
+    display = "";
+
+// конец функции "минус"
+}
+
+var equal = function(){
+
+switch(flag) {
+  case 'plus':  
+    display = Number(display);
+    count += display;
+    break;
+
+  case 'minus':  
+    display = Number(display);
+    count -= display;
+    break;
+
+  default:
+    break;
+//конец switch
+}
+var obj = document.getElementById('display');
+    obj.innerHTML = count;
 display = "";
 
+//конец equal
 }
 /* Конец скрипта */
 </script>
@@ -102,7 +128,7 @@ display = "";
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='4' onclick='add(this.id);'>4</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='5' onclick='add(this.id);'>5</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='6' onclick='add(this.id);'>6</button>
-    <button class="ui-btn ui-btn-inline ui-btn-calc" id='minus'>-</button><br />
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='minus' onclick='minus()'>-</button><br />
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='1' onclick='add(this.id);'>1</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='2' onclick='add(this.id);'>2</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='3' onclick='add(this.id);'>3</button>
