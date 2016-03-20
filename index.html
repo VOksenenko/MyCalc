@@ -19,6 +19,8 @@ width:20% !important;
 var count = 0;
 var temp = 0;
 var display = "";
+var flag = "";
+
 var reset = function(){
     /*Сбрасывает значения count, display и отображает 0 */
     count = 0;
@@ -30,6 +32,7 @@ var reset = function(){
 
 var add = function (val){
     /*Значение id сохраняется в переменную, при множественном нажатии конкатенируется и отображается как строчное значение */
+
     var num = val;
     display += num;
     
@@ -40,12 +43,15 @@ var add = function (val){
 var plus = function(){
 
 //сохраняем значение предыдущего ввода в переменную
+
+flag = "plus";//изменяем значение flag чтобы правильно потом сработала функция equal
 var a = Number(display) ;
 
 count += a;
 
 var obj = document.getElementById('display');
     obj.innerHTML = count;
+
 display = "";
 
 }
