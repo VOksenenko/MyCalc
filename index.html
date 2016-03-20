@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="windows-1251">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
 <script src="scripts/jquery-1.11.3.min.js"></script>
@@ -15,14 +15,14 @@ width:20% !important;
 
 
 <script>
-/* Скрипт */
+/* РЎРєСЂРёРїС‚ */
 var count = 0;
 var temp = 0;
 var display = "";
 var flag = "";
 
 var reset = function(){
-    /*Сбрасывает значения count, display и отображает 0 */
+    /*РЎР±СЂР°СЃС‹РІР°РµС‚ Р·РЅР°С‡РµРЅРёСЏ count, display Рё РѕС‚РѕР±СЂР°Р¶Р°РµС‚ 0 */
     count = 0;
     
     display = "";
@@ -31,7 +31,7 @@ var reset = function(){
 }
 
 var add = function (val){
-    /*Значение id сохраняется в переменную, при множественном нажатии конкатенируется и отображается как строчное значение */
+    /*Р—РЅР°С‡РµРЅРёРµ id СЃРѕС…СЂР°РЅСЏРµС‚СЃСЏ РІ РїРµСЂРµРјРµРЅРЅСѓСЋ, РїСЂРё РјРЅРѕР¶РµСЃС‚РІРµРЅРЅРѕРј РЅР°Р¶Р°С‚РёРё РєРѕРЅРєР°С‚РµРЅРёСЂСѓРµС‚СЃСЏ Рё РѕС‚РѕР±СЂР°Р¶Р°РµС‚СЃСЏ РєР°Рє СЃС‚СЂРѕС‡РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ */
 
     var num = val;
     display += num;
@@ -42,9 +42,9 @@ var add = function (val){
 
 var plus = function(){
 
-//сохраняем значение предыдущего ввода в переменную
+//СЃРѕС…СЂР°РЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ РїСЂРµРґС‹РґСѓС‰РµРіРѕ РІРІРѕРґР° РІ РїРµСЂРµРјРµРЅРЅСѓСЋ
 
-flag = "plus";//изменяем значение flag чтобы правильно потом сработала функция equal
+flag = "plus";//РёР·РјРµРЅСЏРµРј Р·РЅР°С‡РµРЅРёРµ flag С‡С‚РѕР±С‹ РїСЂР°РІРёР»СЊРЅРѕ РїРѕС‚РѕРј СЃСЂР°Р±РѕС‚Р°Р»Р° С„СѓРЅРєС†РёСЏ equal
 var a = Number(display) ;
 
 count += a;
@@ -52,7 +52,7 @@ count += a;
 var obj = document.getElementById('display');
     obj.innerHTML = count;
 
-/* для отслеживания значений переменных.
+/* РґР»СЏ РѕС‚СЃР»РµР¶РёРІР°РЅРёСЏ Р·РЅР°С‡РµРЅРёР№ РїРµСЂРµРјРµРЅРЅС‹С….
 console.log("count: " + count);
 console.log("display " + display);
 console.log("flag " + flag);
@@ -61,7 +61,7 @@ display = "";
 */
 
 
-// конец функции "плюс"
+// РєРѕРЅРµС† С„СѓРЅРєС†РёРё "РїР»СЋСЃ"
 }
 
 var equal = function(){
@@ -77,7 +77,7 @@ var obj = document.getElementById('display');
 display = "";
 
 }
-/* Конец скрипта */
+/* РљРѕРЅРµС† СЃРєСЂРёРїС‚Р° */
 </script>
 
 
@@ -86,15 +86,15 @@ display = "";
 
 <div data-role="page" id="pageone">
   <div data-role="header" style="text-align:center; padding: 5px 0;">
-    Мой калькулятор
+    РњРѕР№ РєР°Р»СЊРєСѓР»СЏС‚РѕСЂ
   </div>
 
-  <div data-role="main" class="ui-content"><!--Контент-->
-    <div ><!--Дисплей-->
+  <div data-role="main" class="ui-content"><!--РљРѕРЅС‚РµРЅС‚-->
+    <div ><!--Р”РёСЃРїР»РµР№-->
     <p style="text-align:right; font-size:1.5em; border:1px solid black;" id='display'>0</p>    
-    </div><!--Конец дисплея-->
+    </div><!--РљРѕРЅРµС† РґРёСЃРїР»РµСЏ-->
 
-    <div style="text-align:right;"><!--Кнопки-->
+    <div style="text-align:right;"><!--РљРЅРѕРїРєРё-->
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='7' onclick='add(this.id);'>7</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='8' onclick='add(this.id);'>8</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='9' onclick='add(this.id);'>9</button>
@@ -112,13 +112,13 @@ display = "";
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='dot'>,</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='divide'>/</button><br />
     <button class="ui-btn  " onclick='equal()'>=</button>
-    </div><!--Конец кнопок-->
+    </div><!--РљРѕРЅРµС† РєРЅРѕРїРѕРє-->
     
-    </div><!--Конец контента-->
+    </div><!--РљРѕРЅРµС† РєРѕРЅС‚РµРЅС‚Р°-->
     <div data-role="footer" style="text-align:center;">
     Made by Vlad
   </div>
-  </div> <!--Конец страницы-->
+  </div> <!--РљРѕРЅРµС† СЃС‚СЂР°РЅРёС†С‹-->
 
 </body>
 </html>
