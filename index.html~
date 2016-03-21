@@ -48,7 +48,6 @@ flag = "plus";
 //сохраняем значение того, что на экране в переменную
 var a = Number(display) ;
 
-//проводим вычисления.
 count += a;
 
 var obj = document.getElementById('display');
