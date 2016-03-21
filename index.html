@@ -63,7 +63,7 @@ var minus = function(){
 //проверяем, были ли до этого вообще какие-либо вычисления
     if(flag == ""){
         flag = "minus";
-        count = +display;
+        count = Number(display);
 
     }else{
         //изменяем значение flag чтобы правильно потом сработала функция equal
@@ -85,7 +85,7 @@ var multy = function(){
 //проверяем, были ли до этого вообще какие-либо вычисления
     if(flag == ""){
         flag = "multy";
-        count = +display;
+        count = Number(display);
 
     }else{
         //изменяем значение flag чтобы правильно потом сработала функция equal
@@ -98,11 +98,32 @@ var multy = function(){
     var obj = document.getElementById('display');
     obj.innerHTML = count;
 
-    display = "";
+    display = "";    
 
 // конец функции multy
 }
 
+var divide = function(){
+//проверяем, были ли до этого вообще какие-либо вычисления
+    if(flag == ""){
+        flag = "divide";
+        count = +display;
+
+    }else{
+        //изменяем значение flag чтобы правильно потом сработала функция equal
+        flag = "divide";
+        //сохраняем значение предыдущего ввода в переменную; выполняем действие и обновляем count
+        var b = Number(display) ;
+        count /= b  ;
+        
+}
+    
+    var obj = document.getElementById('display');
+    obj.innerHTML = count;
+
+    display = "";
+// конец функции divide
+}
 var equal = function(){
 
 switch(flag) {
@@ -114,6 +135,16 @@ switch(flag) {
   case 'minus':  
     display = Number(display);
     count -= display;
+    break;
+  
+   case 'multy':  
+    display = Number(display);
+    count *= display;
+    break;
+
+   case 'divide':  
+    display = Number(display);
+    count /= display;
     break;
 
   default:
@@ -159,7 +190,7 @@ display = "";
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='reset' onclick='reset();'>C</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='0' onclick='add(this.id);'>0</button>
     <button class="ui-btn ui-btn-inline ui-btn-calc" id='dot'>,</button>
-    <button class="ui-btn ui-btn-inline ui-btn-calc" id='divide'>/</button><br />
+    <button class="ui-btn ui-btn-inline ui-btn-calc" id='divide' onclick='divide()'>/</button><br />
     <button class="ui-btn  " onclick='equal()'>=</button>
     </div><!--Конец кнопок-->
     
